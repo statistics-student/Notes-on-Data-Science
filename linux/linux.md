@@ -121,9 +121,87 @@
 
   **python文件第一行加入#!/usr/bin/python即可以执行**
 
+###解压缩相关
 
++ tar类型
 
+  ```python
+  tar -cf all.tar *.txt 将所有txt文件打包成all.-c是表示产生新的包 ，-f指定包的文件名
+  
+  tar -rf all.tar *.txt 将所有.txt的文件增加到all.tar,-r表示新增
+  
+  tar -tf all.tar 列出all.tar包中所有文件，-t表示列出
+  
+  tar -xzf all.tar.gz 解压该包
+  ```
 
++ 对于不同的压缩文件
 
+  + 对于.tar结尾的文件
 
+    tar -xf all.tar
+
+  + 对于.gz结尾的文件
+
+    gzip -d all.gz
+
+    gunzip all.gz
+
+  + 对于.tgz或.tar.gz结尾的文件
+
+    tar -xzf all.tar.gz
+
+    tar -xzf all.tgz
+
+  + 对于.bz2结尾的文件
+
+    bzip2 -d all.bz2
+
+    bunzip2 all.bz2
+
+  + 对于tar.bz2结尾的文件
+
+    tar -xjf all.tar.bz2
+
+  + 对于.Z结尾的文件
+
+    uncompress all.Z
+
+  + 对于.tar.Z结尾的文件
+
+    tar -xZf all.tar.z
+
++ 对于tar不同参数的补充
+
+  ```python
+  必选参数
+  -c: 建立压缩档案 
+  -x：解压 
+  -t：查看内容 
+  -r：向压缩归档文件末尾追加文件 
+  -u：更新原压缩包中的文件
+  #这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个
+  可选参数
+  -z：有gzip属性的 
+  -j：有bz2属性的 
+  -Z：有compress属性的 
+  -v：显示所有过程 
+  -O：将文件解开到标准输出 
+  ```
+
++ <font color='red'>对于windows常见的压缩包，例如.zip和.rar格式的，如下</font>
+
+  + .zip
+
+    ```
+    zip file1.zip *.txt 同上，压缩
+    unzip file1.zip 解压缩
+    ```
+
+  + .rar <font color='red'>需先下载linux for windows</font>
+
+    ```python
+    rar file1.rar *.txt 同上，压缩
+    unrar file1.rar 解压缩
+    ```
 

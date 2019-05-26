@@ -962,3 +962,20 @@ out_put():
 
 <font color='red'>g.get_operations()</font>
 
+### 获取对象
+
+<font color='red'>g.as_graph_element(c1)</font>
+
+## 配置分布式Tensorflow
+
++ ps：服务端，等待各个终端来连接
++ worker：在tensorflow中称为supervisors，作为分布式训练的运算终端，并不会保存检查点
++ chief supervisors：首先启动，并统一管理全局的学习参数，进行初始化或者从模型载入
+
+### 实例5：使用Tensorflow实现分布式训练
+
+server$\implies$tf.train.Supervisor$\implies$ managed_session管理一个session
+
+session负责运算
+
+supervisor负责通信协调
